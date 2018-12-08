@@ -49,7 +49,31 @@ public class PosterModel {
     public List<Poster> getCanho(){
         Session ss = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = ss.beginTransaction();
-        Query query = ss.createQuery("from Poster where name LIKE 'Căn hộ' order by id DESC");
+        Query query = ss.createQuery("FROM Poster WHERE category.id = 121 order by id DESC");
+        trans.commit();
+        return query.list();
+    }
+    
+    public List<Poster> getNhanguyencan(){
+        Session ss = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = ss.beginTransaction();
+        Query query = ss.createQuery("FROM Poster WHERE category.id = 115 order by id DESC");
+        trans.commit();
+        return query.list();
+    }
+    
+    public List<Poster> getPhongtro(){
+        Session ss = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = ss.beginTransaction();
+        Query query = ss.createQuery("FROM Poster WHERE category.id = 1 order by id DESC");
+        trans.commit();
+        return query.list();
+    }
+    
+    public List<Poster> getKhoxuong(){
+        Session ss = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = ss.beginTransaction();
+        Query query = ss.createQuery("FROM Poster WHERE category.id = 122 order by id DESC");
         trans.commit();
         return query.list();
     }
@@ -57,11 +81,10 @@ public class PosterModel {
     public List<Poster> getKhachsan(){
         Session ss = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = ss.beginTransaction();
-        Query query = ss.createQuery("FROM Poster WHERE id_category = 116 order by id DESC");
+        Query query = ss.createQuery("FROM Poster WHERE category.id = 116 order by id DESC");
         trans.commit();
         return query.list();
     }
-    
     //Lấy ra một bài viết để sửa (Theo ID)
     public Poster getPosterByID(int id){
         Session ss = HibernateUtil.getSessionFactory().openSession();
@@ -107,7 +130,7 @@ public class PosterModel {
         return poster;
     }
     
-    //Tìm kiếm
+    //Tìm kiếm 
     public List<Poster> getSPTimKiem(String keyword){
         Session ss = HibernateUtil.getSessionFactory().openSession();
          Transaction trans = ss.beginTransaction();

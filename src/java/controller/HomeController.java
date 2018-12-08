@@ -53,12 +53,14 @@ public class HomeController {
         
         PosterModel ptm = new PosterModel();
         mm.addAttribute("CANHO", ptm.getCanho());
-        System.out.println(ptm.getCanho()+"Đây");
+        
         return "canho";
     }
     
     @RequestMapping(value = "kho")
-    public String kho(){
+    public String kho(ModelMap mm){
+        PosterModel ptm = new PosterModel();
+        mm.addAttribute("KHO",ptm.getKhoxuong());
         return "kho";
     }
     
@@ -66,17 +68,21 @@ public class HomeController {
     public String ks_bt(ModelMap mm){
         PosterModel ptm = new PosterModel();
         mm.addAttribute("KHACHSAN",ptm.getKhachsan());
-        
+      
         return "ks_bt";
     }
     
     @RequestMapping(value = "nhanguyencan")
-    public String nhanguyencan(){
+    public String nhanguyencan(ModelMap mm){
+        PosterModel ptm = new PosterModel();
+        mm.addAttribute("NHANGUYENCAN",ptm.getNhanguyencan());
         return "nhanguyencan";
     }
     
     @RequestMapping(value = "phongtro")
-    public String phongtro(){
+    public String phongtro(ModelMap mm){
+        PosterModel ptm = new PosterModel();
+        mm.addAttribute("PHONGTRO",ptm.getPhongtro());
         return "phongtro";
     }
     

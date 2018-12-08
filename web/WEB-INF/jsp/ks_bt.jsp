@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!doctype html>
 <html>
@@ -38,17 +40,20 @@
 </div>
 </div>
 <div class="body">
-    <div class="hang1">
-        <c:forEach items="${KHACHSAN}" var="item">
-            <div class="o1">
-                <img src="${item.image}" width="50" height="50"/><br/>
-                Tên: ${item.name}<br/>
-                email: ${item.email}<br/>
-                Loại hình: ${item.getCategory().getName()}
-            </div>
-        </c:forEach>
+    <c:forEach items="${KHACHSAN}" var="item">
+        <div class="hang1">
 
-    </div>
+            <div class="o1">
+                <img src="${item.image}" width="50" height="50"/>
+                <p>Tiêu đề: ${item.title}</p>
+                <p>Loại hình: ${item.getCategory().getName()}</p>
+                <p>Nội dung: ${item.info}</p>
+                <p>Email liên hệ: ${item.email}</p>
+            </div>
+
+
+        </div>
+    </c:forEach>
 </div>
 <div class="footer">
 	<div class="ft">

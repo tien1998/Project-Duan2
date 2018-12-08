@@ -40,17 +40,20 @@
 </div>
 </div>
 <div class="body">
-    <div class="hang1">
-        <c:forEach items="${CANHO}" var="item">
-            <div class="o1">
-                <img src="${item.image}" width="50" height="50"/><br/>
-                Tên: ${item.name}<br/>
-                email: ${item.email}<br/>
-                Loại hình: ${item.getCategory().getName()}
-            </div>
-        </c:forEach>
+    <c:forEach items="${CANHO}" var="item">
+        <div class="hang1">
 
-    </div>
+            <div class="o1">
+                <img src="${item.image}" width="50" height="50"/>
+                <p>Tiêu đề: ${item.title}</p>
+                <p>Loại hình: ${item.getCategory().getName()}</p>
+                <p>Nội dung: ${item.info}</p>
+                <p>Email liên hệ: ${item.email}</p>
+            </div>
+
+
+        </div>
+    </c:forEach>
 </div>
 <div class="footer">
 	<div class="ft">
